@@ -1,0 +1,26 @@
+[
+  {
+    "type": "work",
+    "title": "Machine Learning Engineer",
+    "company": "Key Three Data",
+    "logo": "key-three-data.png",
+    "dates": "Sep 2022 - Aug 2024",
+    "bullets": [
+      "Worked as a consultant for Key Three Data on a project aimed at developing an automated platform for converting first-person video to scene analytics.",
+      "Specialized in machine learning algorithms, clustering and analysis.",
+      "Deployed machine learning algorithms and integrated systems onto the Google Cloud Platform."
+    ]
+  },
+  {
+    "type": "freelancing",
+    "title": "Machine Learning Engineer",
+    "company": "Key Three Data",
+    "logo": "key-three-data.png",
+    "dates": "Sep 2022 - Aug 2024",
+    "bullets": [
+      "Worked as a consultant for Key Three Data on a project aimed at developing an automated platform for converting first-person video to scene analytics.",
+      "Specialized in machine learning algorithms, clustering and analysis.",
+      "Deployed machine learning algorithms and integrated systems onto the Google Cloud Platform."
+    ]
+  }
+] 

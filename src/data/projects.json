@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Project 1: Masters Dissertation",
+    "image": "nottingham-robotics.png",
+    "description": "My official Masters dissertation topic was: 'The force-torque characterization of the physical properties of objects using tactile and visual perception with the aid of a collaborative robot.' This project focused on using both tactile and computer vision, together with robotics to determine the physical properties of objects. The aim of this field of research is to bridge the gap between human sense and machine perception.",
+    "techStack": ["Python", "PyTorch", "OpenCV", "ROS"],
+    "github": "https://github.com/yourusername/masters-dissertation"
+  },
+  {
+    "title": "Project 2: Something else",
+    "image": "nottingham-robotics.png",
+    "description": "My official Masters dissertation topic was: 'The force-torque characterization of the physical properties of objects using tactile and visual perception with the aid of a collaborative robot.' This project focused on using both tactile and computer vision, together with robotics to determine the physical properties of objects. The aim of this field of research is to bridge the gap between human sense and machine perception.",
+    "techStack": ["Python", "PyTorch", "OpenCV", "ROS"],
+    "github": "https://github.com/yourusername/other-project"
+  }
+] 
