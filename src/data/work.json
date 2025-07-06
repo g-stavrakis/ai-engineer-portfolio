@@ -1,22 +1,49 @@
 [
   {
     "type": "work",
-    "title": "Machine Learning Engineer",
-    "company": "Key Three Data",
-    "logo": "key-three-data.png",
-    "dates": "Sep 2022 - Aug 2024",
+    "title": "AI Engineer",
+    "company": "IBM",
+    "logo": "IBM.png",
+    "dates": "May 2025 - Present",
     "bullets": [
-      "Worked as a consultant for Key Three Data on a project aimed at developing an automated platform for converting first-person video to scene analytics.",
-      "Specialized in machine learning algorithms, clustering and analysis.",
-      "Deployed machine learning algorithms and integrated systems onto the Google Cloud Platform."
+      "Developed a web-based GenAI chatbot leveraging LLMs on Azure Cloud, enhancing client’s internal knowledge transfer",
+      "Built a searchable knowledge base on Azure AI Search through chunking and vectorization of web-parsed and internal documents, boosting Chatbot Retrieval Augmented Generation (RAG) performance",
+      "Automated knowledge base updates using Azure Function App pipelines and monitored logs via PostgreSQL",
+      "Developed a multi-agent system using LangChain Agents and LangGraph to aggregate data from web sources, Greek Business Registry, and internal Databricks tables, generating automated bulletins for Credit Risk analysis"
+    ]
+  },
+  {
+    "type": "work",
+    "title": "AI Engineer",
+    "company": "Accenture",
+    "logo": "Accenture.png",
+    "dates": "Sep 2023 - May 2025",
+    "bullets": [
+      "Developed a web-based GenAI chatbot leveraging LLMs on Azure Cloud, enhancing client’s internal knowledge transfer",
+      "Built a searchable knowledge base on Azure AI Search through chunking and vectorization of web-parsed and internal documents, boosting Chatbot Retrieval Augmented Generation (RAG) performance",
+      "Automated knowledge base updates using Azure Function App pipelines and monitored logs via PostgreSQL",
+      "Developed a multi-agent system using LangChain Agents and LangGraph to aggregate data from web sources, Greek Business Registry, and internal Databricks tables, generating automated bulletins for Credit Risk analysis"
+    ]
+  },
+  {
+    "type": "work",
+    "title": "Junior Data Analyst",
+    "company": "Cube RM",
+    "logo": "Cube RM.jpeg",
+    "dates": "Jan 2023 - Aug 2023",
+    "bullets": [
+      "Perform advanced prompt engineering techniques and model tuning, utilizing the OpenAI API in Python, leading to a 20% increase in the company’s information extraction processes",
+      "Created a translation tool using open-source libraries and Azure cognitive services deployed on Power automate",
+      "Streamlined manual processes by deploying parsing Python scripts on Power Automate, saving ~15 hours weekly",
+      "Developed a low-code application using the AppSmith framework and JavaScript, integrated with SQL Server and FastAPI, and deployed on Azure using Docker to improve the visibility of the company’s pricing guidance product"
     ]
   },
   {
     "type": "freelancing",
-    "title": "Machine Learning Engineer",
-    "company": "Key Three Data",
-    "logo": "key-three-data.png",
-    "dates": "Sep 2022 - Aug 2024",
+    "title": "Technical Writer",
+    "company": "Unstract",
+    "logo": "Unstract.png",
+    "dates": "Feb 2025 - Ongoing",
     "bullets": [
       "Worked as a consultant for Key Three Data on a project aimed at developing an automated platform for converting first-person video to scene analytics.",
       "Specialized in machine learning algorithms, clustering and analysis.",

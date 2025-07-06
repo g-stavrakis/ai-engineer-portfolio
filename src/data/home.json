@@ -1,0 +1,58 @@
+{
+  "intro": {
+    "avatar": "avatar.png",
+    "headline": "An AI Engineer exploring the world of AI on a mission to add value to others through creative solutions to everyday problems!",
+    "tagline": "Scroll down to learn more!"
+  },
+  "navigation": [
+    {
+      "label": "Work Experience",
+      "desc": "Some tag line about my work and freelancing as AI Engineer",
+      "to": "/work",
+      "bg": "bg-cyan-50",
+      "border": "border-cyan-100",
+      "iconBg": "bg-cyan-100",
+      "tags": [
+        { "label": "Work", "color": "bg-cyan-200 text-cyan-900" },
+        { "label": "Freelancing", "color": "bg-cyan-300 text-cyan-900" }
+      ],
+      "phoneImg": "phone-work.png"
+    },
+    {
+      "label": "Projects",
+      "desc": "Some tag line about my projects with new AI technologies and frameworks.",
+      "to": "/projects",
+      "bg": "bg-rose-50",
+      "border": "border-rose-100",
+      "iconBg": "bg-rose-100",
+      "tags": [
+        { "label": "Personal Projects", "color": "bg-rose-200 text-rose-900" },
+        { "label": "OS Contributions", "color": "bg-rose-300 text-rose-900" }
+      ],
+      "phoneImg": "phone-projects.png"
+    },
+    {
+      "label": "Articles",
+      "desc": "Some tag line about me being editor of Towards Data Science",
+      "to": "/articles",
+      "bg": "bg-sky-50",
+      "border": "border-sky-100",
+      "iconBg": "bg-sky-100",
+      "tags": [
+        { "label": "Medium", "color": "bg-sky-200 text-sky-900" }
+      ],
+      "phoneImg": "phone-articles.png"
+    }
+  ],
+  "about": {
+    "image": "my-image.jpg",
+    "headline": "About Me",
+    "subheadline": "Few words about me",
+    "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  "contact": {
+    "headline": "I have got just what you need. Lets talk.",
+    "email": "george.stavrakis.1996@gmail.com",
+    "location": "Athens, Greece"
+  }
+} 
