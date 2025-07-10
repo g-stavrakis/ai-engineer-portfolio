@@ -1,16 +1,18 @@
 [
   {
-    "title": "How to Extract Text from PDF Files with Python: A Comprehensive Guide",
-    "image": "extract-pdf-python.png",
-    "publisher": "Medium",
-    "date": "2024-06-01",
-    "summary": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    "title": "Transformers Pipeline: A Comprehensive Guide for NLP Tasks",
+    "image": "transformers.png",
+    "publisher": "Towards Data Science",
+    "date": "2024-02-16",
+    "summary": "A deep dive into the one line of code that can bring thousands of ready-to-use AI solutions into your scripts, utilizing the power of the 🤗 Transformers library.",
+    "tags": ["NLP", "Transformers", "Hugging Face"]
   },
   {
-    "title": "Another Article Title",
-    "image": "article-image-placeholder.png",
-    "publisher": "Dev.to",
-    "date": "2024-05-15",
-    "summary": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    "title": "How to Extract Text from PDF Files with Python: A Comprehensive Guide",
+    "image": "extract-pdf-python.png",
+    "publisher": "Towards Data Science",
+    "date": "2023-09-22",
+    "summary": "A complete process to extract textual information from tables, images, and plain text from a PDF file",
+    "tags": ["Python", "PDF", "Extraction"]
   }
 ] 

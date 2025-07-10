@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Container from '@/components/Container';
 import Card from '@/components/Card';
+import { useNavigate } from 'react-router-dom';
 
 interface ProjectItem {
   title: string;
@@ -19,6 +20,7 @@ const getImageUrl = (filename: string) => {
 };
 
 const Projects: React.FC = () => {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState<ProjectItem[]>([]);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <Container className="py-8 px-2">
+    <div className="min-h-screen bg-[#fafafa] py-8 px-2">
       <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center">Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((item, idx) => (
@@ -47,7 +49,19 @@ const Projects: React.FC = () => {
           </Card>
         ))}
       </div>
-    </Container>
+      {/* Home button at the end of the page */}
+      <div className="flex justify-center mt-12 mb-4">
+        <button
+          onClick={() => navigate('/')}
+          className="rounded-full bg-teal-400 hover:bg-teal-500 transition-colors w-14 h-14 flex items-center justify-center shadow-lg"
+          aria-label="Go to Home"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-7 h-7">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6" />
+          </svg>
+        </button>
+      </div>
+    </div>
   );
 };
 
