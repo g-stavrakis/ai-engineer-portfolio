@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Container from '@/components/Container';
-import Card from '@/components/Card';
+import Card from '../components/Card';
 import { useNavigate } from 'react-router-dom';
 
 interface WorkItem {
@@ -46,7 +45,7 @@ const Work: React.FC = () => {
   const [workData, setWorkData] = useState<WorkItem[]>([]);
 
   useEffect(() => {
-    import('@/data/work.json').then((data) => setWorkData(data.default || data));
+    import('../data/work.json').then((data) => setWorkData(data.default || data));
   }, []);
 
   const grouped = workData.reduce<{ [key: string]: WorkItem[] }>((acc, item) => {

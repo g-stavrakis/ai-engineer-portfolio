@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Container from '@/components/Container';
-import Card from '@/components/Card';
 import { useNavigate } from 'react-router-dom';
 
 interface ProjectItem {
@@ -20,9 +18,6 @@ const getImageUrl = (filename: string) => {
     return '';
   }
 };
-
-const categoryTabs = ["Gen AI", "NLP", "ML / DL"];
-const iconColors = ["bg-red-400", "bg-orange-400", "bg-blue-400"];
 
 // Dynamically import all SVGs from the icons folder (same as Work.tsx)
 const iconFiles = import.meta.glob('../assets/icons/*.svg', { eager: true, query: '?url', import: 'default' });
@@ -49,7 +44,7 @@ const Projects: React.FC = () => {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
 
   useEffect(() => {
-    import('@/data/projects.json').then((data) => setProjects(data.default || data));
+    import('../data/projects.json').then((data) => setProjects(data.default || data));
   }, []);
 
   return (

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Container from '@/components/Container';
-import Card from '@/components/Card';
+import Container from '../components/Container';
+import Card from '../components/Card';
 import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Player from 'lottie-react';
-import scrollDownLottie from '@/assets/scroll-down-hint.json';
+import scrollDownLottie from '../assets/scroll-down-hint.json';
 import emailjs from '@emailjs/browser';
 
 interface NavCard {
@@ -39,19 +39,6 @@ interface HomeData {
   };
 }
 
-const navCardAnimations = [
-  'animate-fade-in-up delay-100',
-  'animate-fade-in-up delay-200',
-  'animate-fade-in-up delay-300',
-];
-
-const sectionLinks = [
-  { id: 'intro', label: 'Intro' },
-  { id: 'navigation', label: 'Navigation' },
-  { id: 'about', label: 'About Me' },
-  { id: 'contact', label: 'Contact' },
-];
-
 const getImageUrl = (filename: string) => {
   try {
     return new URL(`../assets/images/${filename}`, import.meta.url).href;
@@ -76,15 +63,8 @@ const Home: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    import('@/data/home.json').then((d) => setData(d.default || d));
+    import('../data/home.json').then((d) => setData(d.default || d));
   }, []);
-
-  const handleScroll = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Container from '@/components/Container';
-import Card from '@/components/Card';
-import phoneFrame from '@/assets/images/phone-frame.png';
-import articleMask from '@/assets/images/article-mask.svg';
+import phoneFrame from '../assets/images/phone-frame.png';
+import articleMask from '../assets/images/article-mask.svg';
 import { useNavigate } from 'react-router-dom';
 
 interface ArticleItem {
@@ -28,7 +26,7 @@ const Articles: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    import('@/data/articles.json').then((data) => {
+    import('../data/articles.json').then((data) => {
       const loaded = data.default || data;
       console.log('Loaded articles:', loaded);
       setArticles(loaded);
