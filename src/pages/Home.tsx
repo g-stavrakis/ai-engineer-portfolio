@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Player from 'lottie-react';
 import scrollDownLottie from '@/assets/scroll-down-hint.json';
+import emailjs from '@emailjs/browser';
 
 interface NavCard {
   label: string;
@@ -63,6 +64,17 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<HomeData | null>(null);
 
+  // Contact form state
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     import('@/data/home.json').then((d) => setData(d.default || d));
   }, []);
@@ -74,10 +86,37 @@ const Home: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted');
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+    try {
+      // Use Vite environment variables for EmailJS credentials
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // The template params must match your EmailJS template fields
+      const templateParams = {
+        from_name: form.name,
+        from_email: form.email,
+        subject: form.subject,
+        message: form.message,
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      setSuccess('Thank you! Your message has been sent.');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      setError('Sorry, there was a problem sending your message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!data) return null;
@@ -114,7 +153,7 @@ const Home: React.FC = () => {
   return (
     <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-gradient-to-br from-slate-50 to-blue-50 relative">
       {/* Social Media Bar */}
-      <div className="absolute top-4 left-[10%] flex flex-row gap-3 z-50">
+      <div className="absolute top-12 left-[10%] flex flex-row gap-3 z-50">
         {socialLinks.map((item) => (
           <a
             key={item.name}
@@ -262,6 +301,9 @@ const Home: React.FC = () => {
                 required
                 className="flex-1 px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg"
                 placeholder="Name"
+                value={form.name}
+                onChange={handleInputChange}
+                disabled={loading}
               />
               <input
                 type="email"
@@ -270,6 +312,9 @@ const Home: React.FC = () => {
                 required
                 className="flex-1 px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg"
                 placeholder="Email"
+                value={form.email}
+                onChange={handleInputChange}
+                disabled={loading}
               />
             </div>
             <input
@@ -278,6 +323,9 @@ const Home: React.FC = () => {
               name="subject"
               className="px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg"
               placeholder="Subject"
+              value={form.subject}
+              onChange={handleInputChange}
+              disabled={loading}
             />
             <textarea
               id="message"
@@ -286,13 +334,19 @@ const Home: React.FC = () => {
               rows={5}
               className="px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg resize-none"
               placeholder="Message"
+              value={form.message}
+              onChange={handleInputChange}
+              disabled={loading}
             />
             <button
               type="submit"
-              className="w-full bg-teal-400 text-white py-4 px-8 rounded-lg font-semibold hover:bg-teal-500 transition-colors duration-200 text-lg mt-2"
+              className="w-full bg-teal-400 text-white py-4 px-8 rounded-lg font-semibold hover:bg-teal-500 transition-colors duration-200 text-lg mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={loading}
             >
-              Submit
+              {loading ? 'Sending...' : 'Submit'}
             </button>
+            {success && <div className="text-green-600 text-center mt-2">{success}</div>}
+            {error && <div className="text-red-600 text-center mt-2">{error}</div>}
           </form>
         </div>
       </section>
