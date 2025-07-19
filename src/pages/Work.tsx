@@ -10,6 +10,7 @@ interface WorkItem {
   logo: string;
   dates: string;
   bullets: string[];
+  tech?: string[]; // Add tech array
 }
 
 const getImageUrl = (filename: string) => {
@@ -18,6 +19,26 @@ const getImageUrl = (filename: string) => {
   } catch {
     return '';
   }
+};
+
+// Dynamically import all SVGs from the icons folder
+const iconFiles = import.meta.glob('../assets/icons/*.svg', { eager: true, query: '?url', import: 'default' });
+const techIcons: Record<string, string> = {
+  python: iconFiles['../assets/icons/python.svg'] as string,
+  git: iconFiles['../assets/icons/git.svg'] as string,
+  azure: iconFiles['../assets/icons/azure.svg'] as string,
+  azureai: iconFiles['../assets/icons/azureai.svg'] as string,
+  databricks: iconFiles['../assets/icons/databricks.svg'] as string,
+  docker: iconFiles['../assets/icons/docker.svg'] as string,
+  huggingface: iconFiles['../assets/icons/huggingface.svg'] as string,
+  langchain: iconFiles['../assets/icons/langchain.svg'] as string,
+  langgraph: iconFiles['../assets/icons/langgraph.svg'] as string,
+  notion: iconFiles['../assets/icons/notion.svg'] as string,
+  openai: iconFiles['../assets/icons/openai.svg'] as string,
+  postgresql: iconFiles['../assets/icons/postgresql.svg'] as string,
+  postman: iconFiles['../assets/icons/postman.svg'] as string,
+  streamlit: iconFiles['../assets/icons/streamlit.svg'] as string,
+  unstructured: iconFiles['../assets/icons/unstructured.svg'] as string,
 };
 
 const Work: React.FC = () => {
@@ -42,40 +63,57 @@ const Work: React.FC = () => {
           <h3 className={`text-teal-700 text-lg sm:text-xl font-bold mb-4 capitalize tracking-wide text-center`}>{type === 'work' ? 'Work Experience' : 'Freelancing'}</h3>
           {/* Carousel container */}
           <div className="overflow-x-auto scrollbar-hide px-8 py-12 snap-x snap-mandatory">
-            <div className={`flex flex-row gap-6 min-w-full${items.length === 1 ? ' justify-center' : ''}`}>
-              {items.map((item, idx) => (
-                <div className="flex-shrink-0 w-full sm:w-[45vw] max-w-[600px] snap-start">
-                  <Card key={idx}>
-                    <div className="flex flex-col items-center p-6 pt-10 bg-gradient-to-br from-blue-100 via-white to-blue-50 dark:from-blue-900 dark:via-zinc-800 dark:to-blue-800 rounded-2xl shadow-md transition-transform duration-200 hover:scale-102 hover:shadow-xl">
-                      {/* Logo at top center */}
-                      <div className="w-24 h-24 bg-white rounded-full shadow flex items-center justify-center mb-4 -mt-16 border-4 border-zinc-100 dark:border-zinc-700">
-                        {item.logo ? (
-                          <img src={getImageUrl(item.logo)} alt={item.company} className="w-16 h-16 object-contain" onError={e => (e.currentTarget.style.display = 'none')} />
-                        ) : (
-                          <span className="text-4xl font-bold text-zinc-400">{item.company[0]}</span>
-                        )}
+            {(() => {
+              // Calculate the max number of bullets for this row
+              const maxBullets = Math.max(...items.map(i => i.bullets.length));
+              return (
+                <div className={`flex flex-row gap-6 min-w-full${items.length === 1 ? ' justify-center' : ''} items-stretch`}>
+                  {items.map((item, idx) => {
+                    // Only add extra padding to the IBM card
+                    let extraPadding = {};
+                    if (item.company === 'IBM') {
+                      const padRows = maxBullets - item.bullets.length;
+                      if (padRows > 0) {
+                        extraPadding = { paddingBottom: `${padRows * 24}px` };
+                      }
+                    }
+                    return (
+                      <div className="flex-shrink-0 w-full sm:w-[45vw] max-w-[600px] snap-start h-full" key={idx}>
+                        <Card className="h-full flex flex-col w-full">
+                          <div className="flex flex-col items-center p-6 pt-10 bg-gradient-to-br from-blue-100 via-white to-blue-50 dark:from-blue-900 dark:via-zinc-800 dark:to-blue-800 rounded-2xl shadow-md transition-transform duration-200 hover:scale-102 hover:shadow-xl h-full w-full">
+                            {/* Logo at top center */}
+                            <div className="w-24 h-24 bg-white rounded-full shadow flex items-center justify-center mb-4 -mt-16 border-4 border-zinc-100 dark:border-zinc-700">
+                              {item.logo ? (
+                                <img src={getImageUrl(item.logo)} alt={item.company} className="w-16 h-16 object-contain" onError={e => (e.currentTarget.style.display = 'none')} />
+                              ) : (
+                                <span className="text-4xl font-bold text-zinc-400">{item.company[0]}</span>
+                              )}
+                            </div>
+                            {/* Title and Company */}
+                            <h3 className="text-xl font-bold text-center mb-1 mt-2">{item.title}</h3>
+                            <p className="text-teal-600 dark:text-teal-400 text-center font-semibold text-lg mb-2">{item.company}</p>
+                            {/* Tech icons row (dynamic) */}
+                            <div className="flex flex-row items-center justify-center gap-2 mb-2">
+                              {item.tech?.map((tech, i) =>
+                                techIcons[tech] ? (
+                                  <img key={i} src={techIcons[tech]} alt={tech} className="w-7 h-7" />
+                                ) : null
+                              )}
+                            </div>
+                            {/* Dates */}
+                            <p className="text-xs text-zinc-400 uppercase tracking-wide text-center mb-4">{item.dates}</p>
+                            {/* Bullets */}
+                            <ul className="list-disc pl-4 text-sm text-zinc-700 dark:text-zinc-300 text-left w-full" style={extraPadding}>
+                              {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                            </ul>
+                          </div>
+                        </Card>
                       </div>
-                      {/* Title and Company */}
-                      <h3 className="text-xl font-bold text-center mb-1 mt-2">{item.title}</h3>
-                      <p className="text-teal-600 dark:text-teal-400 text-center font-semibold text-lg mb-2">{item.company}</p>
-                      {/* Tech icons row (placeholder) */}
-                      <div className="flex flex-row items-center justify-center gap-2 mb-2">
-                        {/* Example placeholder icons, replace with dynamic icons if available */}
-                        <span className="inline-block w-6 h-6 bg-zinc-200 rounded-full" />
-                        <span className="inline-block w-6 h-6 bg-zinc-200 rounded-full" />
-                        <span className="inline-block w-6 h-6 bg-zinc-200 rounded-full" />
-                      </div>
-                      {/* Dates */}
-                      <p className="text-xs text-zinc-400 uppercase tracking-wide text-center mb-4">{item.dates}</p>
-                      {/* Bullets */}
-                      <ul className="list-disc pl-4 text-sm text-zinc-700 dark:text-zinc-300 text-left w-full">
-                        {item.bullets.map((b, i) => <li key={i}>{b}</li>)}
-                      </ul>
-                    </div>
-                  </Card>
+                    );
+                  })}
                 </div>
-              ))}
-            </div>
+              );
+            })()}
           </div>
         </div>
       ))}

@@ -7,7 +7,7 @@
   "navigation": [
     {
       "label": "Work Experience",
-      "desc": "Some tag line about my work and freelancing as AI Engineer",
+      "desc": "Explore my corporate & freelance journey as an AI Engineer!",
       "to": "/work",
       "bg": "bg-cyan-50",
       "border": "border-cyan-100",
@@ -20,7 +20,7 @@
     },
     {
       "label": "Projects",
-      "desc": "Some tag line about my projects with new AI technologies and frameworks.",
+      "desc": "See my cool projects with new AI technologies and frameworks.",
       "to": "/projects",
       "bg": "bg-rose-50",
       "border": "border-rose-100",
@@ -33,7 +33,7 @@
     },
     {
       "label": "Articles",
-      "desc": "Some tag line about me being editor of Towards Data Science",
+      "desc": "Check out my articles on AI tools & concepts published on TDS!",
       "to": "/articles",
       "bg": "bg-sky-50",
       "border": "border-sky-100",
@@ -47,11 +47,11 @@
   "about": {
     "image": "my-image.jpg",
     "headline": "About Me",
-    "subheadline": "Few words about me",
-    "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    "subheadline": "Hey there! 👋",
+    "bio": "I'm George, an AI Engineer at IBM with two years of experience delivering AI-driven solutions across the Banking, Financial Services, Mining, and Healthcare industries. \nMy work focuses on Data Management & Transformation, Generative AI and intelligent agents, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), data migration, and reporting systems.\n I hold an MSc in Business Analytics from Bayes Business School (UK) and a BSc in Accounting and Finance from the Athens University of Economics and Business (Greece). \n\nBeyond my professional work, I have a deep passion for exploring new frameworks and techniques in the field of Generative AI. I regularly write about my learnings and insights on Medium, where I’m a proud contributor to Towards Data Science."
   },
   "contact": {
-    "headline": "I have got just what you need. Lets talk.",
+    "headline": "Do you want to build cool AI products? Lets talk.",
     "email": "george.stavrakis.1996@gmail.com",
     "location": "Athens, Greece"
   }

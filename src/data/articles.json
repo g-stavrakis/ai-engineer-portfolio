@@ -5,7 +5,8 @@
     "publisher": "Towards Data Science",
     "date": "2024-02-16",
     "summary": "A deep dive into the one line of code that can bring thousands of ready-to-use AI solutions into your scripts, utilizing the power of the 🤗 Transformers library.",
-    "tags": ["NLP", "Transformers", "Hugging Face"]
+    "tags": ["NLP", "Transformers", "Hugging Face"],
+    "url": "https://medium.com/data-science/transformers-pipeline-a-comprehensive-guide-for-nlp-tasks-e4ae260a13db"
   },
   {
     "title": "How to Extract Text from PDF Files with Python: A Comprehensive Guide",
@@ -13,6 +14,7 @@
     "publisher": "Towards Data Science",
     "date": "2023-09-22",
     "summary": "A complete process to extract textual information from tables, images, and plain text from a PDF file",
-    "tags": ["Python", "PDF", "Extraction"]
+    "tags": ["Python", "PDF", "Extraction"],
+    "url": "https://medium.com/data-science/extracting-text-from-pdf-files-with-python-a-comprehensive-guide-9fc4003d517"
   }
 ] 

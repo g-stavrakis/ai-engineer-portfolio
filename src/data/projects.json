@@ -1,16 +1,46 @@
 [
   {
-    "title": "Project 1: Masters Dissertation",
-    "image": "nottingham-robotics.png",
-    "description": "My official Masters dissertation topic was: 'The force-torque characterization of the physical properties of objects using tactile and visual perception with the aid of a collaborative robot.' This project focused on using both tactile and computer vision, together with robotics to determine the physical properties of objects. The aim of this field of research is to bridge the gap between human sense and machine perception.",
-    "techStack": ["Python", "PyTorch", "OpenCV", "ROS"],
-    "github": "https://github.com/yourusername/masters-dissertation"
+    "title": "Project 1: Investment Assistant",
+    "images": [
+      "investment_assistant_ui.png",
+      "investment_assistant_flow.png"
+    ],
+    "description": "The Investment Assistant is an LLM-powered QA RAG system that breaks 2023 10-K financial reports from 60+ large companies into meaningful chunks, addresses these challenges by allowing users to interact with the reports in real time. This enables quick retrieval of key insights, simplifies complex financial data, and provides accurate, context-aware responses to specific queries. By offering immediate access to critical financial information, risks, and opportunities, the tool empowers investors to make informed decisions and act swiftly on newly released data, staying ahead of market movements.",
+    "tech": ["python", "langchain", "openai", "streamlit"],
+    "tags": ["RAG", "Hybrid Search", "Openai", "Streamlit"],
+    "github": "https://github.com/g-stavrakis/Investment_Assistant?tab=readme-ov-file"
   },
   {
-    "title": "Project 2: Something else",
-    "image": "nottingham-robotics.png",
-    "description": "My official Masters dissertation topic was: 'The force-torque characterization of the physical properties of objects using tactile and visual perception with the aid of a collaborative robot.' This project focused on using both tactile and computer vision, together with robotics to determine the physical properties of objects. The aim of this field of research is to bridge the gap between human sense and machine perception.",
-    "techStack": ["Python", "PyTorch", "OpenCV", "ROS"],
-    "github": "https://github.com/yourusername/other-project"
+    "title": "Project 2: Dissertation",
+    "images": [
+      "fiat_sentiment.png",
+      "fiat_topic.png"
+    ],
+    "description": "This project aims to support Fiat in establishing the 500 full-electric (BEV) as its best-selling model in the UK by analyzing public sentiment and brand perception. The analysis focuses on understanding how audiences perceive the 500 BEV compared to the traditional hybrid version, and whether sentiment differs between the broader Fiat brand and the iconic “Fiat 500” name.",
+    "tech": ["Python", "git" ,"postman"],
+    "tags": ["NLP", "Sentiment Analysis", "Topic Modeling", "Youtube API"],
+    "github": "https://github.com/g-stavrakis/Fiat_500-project"
+  },
+  {
+    "title": "Project 3: Text Extraction from PDFs",
+    "images": [
+      "text_extraction_cover.png",
+      "Text Extraction Flowchart.png"
+    ],
+    "description": "In this repo, I will provide a comprehensive guide on extracting text data from PDF files in Python. This approach will cover the text extraction for different components in PDFs such as Plain text, Tables and Images in the PDF. For the full guide you can read my article on Medium: https://bit.ly/3RtPuCw",
+    "tech": ["Python"],
+    "tags": ["Python", "PDF Extraction"],
+    "github": "https://github.com/g-stavrakis/PDF_Text_Extraction"
+  },
+  {
+    "title": "Project 4: Transformers Pipeline: A Comprehensive Guide for NLP Tasks",
+    "images": [
+      "Model Hub.png",
+      "Transformer Model Architecture.jpg"
+    ],
+    "description": "In this repo, I will provide a comprehensive guide on how to utilise the pipeline() function of the transformers library to create an end-to-end NLP pipeline in just one line of code. For the full guide, you can read my article on Medium: https://bit.ly/49i8JoP ",
+    "tech": ["huggingface", "Python"],
+    "tags": ["NLP", "Hugging Face"],
+    "github": "https://github.com/g-stavrakis/Transformers_Pipeline_Intro"
   }
 ] 

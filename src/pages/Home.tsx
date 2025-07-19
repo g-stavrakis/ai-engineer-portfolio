@@ -82,8 +82,57 @@ const Home: React.FC = () => {
 
   if (!data) return null;
 
+  // Social media links and icons
+  const iconFiles = import.meta.glob('../assets/icons/*.svg', { eager: true, query: '?url', import: 'default' });
+  const socialLinks = [
+    {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/george-stavrakis/',
+      icon: iconFiles['../assets/icons/linkedin.svg'] as string,
+      label: 'LinkedIn',
+    },
+    {
+      name: 'Medium',
+      href: 'https://medium.com/@george.stavrakis.1996',
+      icon: iconFiles['../assets/icons/medium.svg'] as string,
+      label: 'Medium',
+    },
+    {
+      name: 'GitHub',
+      href: 'https://github.com/g-stavrakis',
+      icon: iconFiles['../assets/icons/github.svg'] as string,
+      label: 'GitHub',
+    },
+    {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/george_stv',
+      icon: iconFiles['../assets/icons/instagram.svg'] as string,
+      label: 'Instagram',
+    },
+  ];
+
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-gradient-to-br from-slate-50 to-blue-50 relative">
+      {/* Social Media Bar */}
+      <div className="absolute top-4 left-[10%] flex flex-row gap-3 z-50">
+        {socialLinks.map((item) => (
+          <a
+            key={item.name}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.label}
+            className="hover:scale-110 transition-transform duration-150"
+          >
+            <img
+              src={item.icon}
+              alt={item.label}
+              className="w-8 h-8 text-gray-500 hover:text-teal-500"
+              style={{ filter: 'grayscale(1)', opacity: 0.7 }}
+            />
+          </a>
+        ))}
+      </div>
       {/* Intro Section */}
       <section className="h-screen snap-start flex flex-col justify-center items-center px-4 py-8">
         <div className="text-center max-w-4xl mx-auto">
@@ -176,7 +225,9 @@ const Home: React.FC = () => {
               </div>
               <div className="flex-1 text-left">
                 <h3 className="text-lg font-semibold mb-2">{data.about.subheadline}</h3>
-                <p className="text-zinc-700 dark:text-zinc-300 max-w-xl text-base">{data.about.bio}</p>
+                {data.about.bio.split('\n').map((line, idx) => (
+                  <p key={idx} className="text-zinc-700 dark:text-zinc-300 max-w-xl text-base">{line}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -189,16 +240,16 @@ const Home: React.FC = () => {
           <div className="mb-8">
             <div className="tracking-[0.4em] text-center text-gray-400 text-lg mb-6 font-medium">CONTACT</div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-              I have got just what you need. <span className="underline cursor-pointer">Let&apos;s talk.</span>
+              {data.contact.headline}
             </h2>
             <div className="flex flex-col items-center gap-3 mb-10">
               <div className="flex items-center gap-2 text-gray-600 text-lg">
                 <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5.75C3 4.784 3.784 4 4.75 4h14.5c.966 0 1.75.784 1.75 1.75v12.5c0 .966-.784 1.75-1.75 1.75H4.75A1.75 1.75 0 013 18.25V5.75z" /><path strokeLinecap="round" strokeLinejoin="round" d="M3 6l9 6 9-6" /></svg>
-                <span>george.stavrakis@gmail.com</span>
+                <span>{data.contact.email}</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-lg">
                 <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657A8 8 0 013.343 2.343a8 8 0 0011.314 11.314z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                <span>Athens, Greece</span>
+                <span>{data.contact.location}</span>
               </div>
             </div>
           </div>

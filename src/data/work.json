@@ -3,19 +3,21 @@
     "type": "work",
     "title": "AI Engineer",
     "company": "IBM",
+    "tech": ["python", "langgraph", "git", "docker", "openai", "azure"],
     "logo": "IBM.png",
     "dates": "May 2025 - Present",
     "bullets": [
-      "Developed a web-based GenAI chatbot leveraging LLMs on Azure Cloud, enhancing client’s internal knowledge transfer",
-      "Built a searchable knowledge base on Azure AI Search through chunking and vectorization of web-parsed and internal documents, boosting Chatbot Retrieval Augmented Generation (RAG) performance",
-      "Automated knowledge base updates using Azure Function App pipelines and monitored logs via PostgreSQL",
-      "Developed a multi-agent system using LangChain Agents and LangGraph to aggregate data from web sources, Greek Business Registry, and internal Databricks tables, generating automated bulletins for Credit Risk analysis"
+      "Developed and deployed multi-step agentic workflows using Langchain Agents and LangGraph with Azure integrations to streamline banking operations for different departments",
+      "Containerized Python and .NET applications to automate the data ingestion processes to different knowledge bases utilizing Docker and Azure DevOps pipelines",
+      "Built and validated searchable knowledge bases on Azure AI Search for different internal and external chatbot",
+      "Worked on the development of custom chatbot interfaces using Open WebUI framework"
     ]
   },
   {
     "type": "work",
     "title": "AI Engineer",
     "company": "Accenture",
+    "tech": ["python", "langchain", "databricks", "git", "openai", "azure", "postgresql"],
     "logo": "Accenture.png",
     "dates": "Sep 2023 - May 2025",
     "bullets": [
@@ -29,6 +31,7 @@
     "type": "work",
     "title": "Junior Data Analyst",
     "company": "Cube RM",
+    "tech": ["python", "openai", "azure"],
     "logo": "Cube RM.jpeg",
     "dates": "Jan 2023 - Aug 2023",
     "bullets": [
@@ -42,12 +45,13 @@
     "type": "freelancing",
     "title": "Technical Writer",
     "company": "Unstract",
+    "tech": ["postman", "unstructured", "openai"],
     "logo": "Unstract.png",
-    "dates": "Feb 2025 - Ongoing",
+    "dates": "Feb 2025 - Present",
     "bullets": [
-      "Worked as a consultant for Key Three Data on a project aimed at developing an automated platform for converting first-person video to scene analytics.",
-      "Specialized in machine learning algorithms, clustering and analysis.",
-      "Deployed machine learning algorithms and integrated systems onto the Google Cloud Platform."
+      "Worked as a technical writer for Unstract, a startup that provides a platform for end-to-end document processing and information extraction.",
+      "Created technical blogs for the Unstract platform, including API tutorials, and integration guides.",
+      "Documented the Unstract platform's features and capabilities, setting up an end-to-end documentation for the workflow"
     ]
   }
 ] 
