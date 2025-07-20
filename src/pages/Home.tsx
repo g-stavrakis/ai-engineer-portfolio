@@ -83,9 +83,9 @@ const Home: React.FC = () => {
 
       // The template params must match your EmailJS template fields
       const templateParams = {
-        from_name: form.name,
-        from_email: form.email,
-        subject: form.subject,
+        name: form.name,
+        title: form.subject,
+        email: form.email,
         message: form.message,
       };
 

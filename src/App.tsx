@@ -7,7 +7,7 @@ import Articles from './pages/Articles';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ai-engineer-portfolio">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
