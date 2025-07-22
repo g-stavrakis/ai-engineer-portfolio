@@ -133,7 +133,7 @@ const Home: React.FC = () => {
   return (
     <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-gradient-to-br from-slate-50 to-blue-50 relative">
       {/* Social Media Bar */}
-      <div className="absolute top-12 left-[10%] flex flex-row gap-3 z-50">
+      <div className="absolute top-8 sm:top-12 left-[5%] sm:left-[10%] flex flex-row gap-2 sm:gap-3 z-50">
         {socialLinks.map((item) => (
           <a
             key={item.name}
@@ -146,7 +146,7 @@ const Home: React.FC = () => {
             <img
               src={item.icon}
               alt={item.label}
-              className="w-8 h-8 text-gray-500 hover:text-teal-500"
+              className="w-6 h-6 sm:w-8 sm:h-8 text-gray-500 hover:text-teal-500"
               style={{ filter: 'grayscale(1)', opacity: 0.7 }}
             />
           </a>
@@ -159,22 +159,23 @@ const Home: React.FC = () => {
             <img
               src={getImageUrl(data.intro.avatar)}
               alt="Avatar"
-              className="w-48 h-48 md:w-60 md:h-60 rounded-full mx-auto mb-6 object-cover shadow-lg"
+              className="w-32 h-32 sm:w-40 sm:h-40 md:w-60 md:h-60 rounded-full mx-auto mb-4 sm:mb-6 object-cover shadow-lg"
             />
-            <h1 className="text-xl md:text-3xl font-light italic text-gray-800 mb-4 leading-tight">
+            <h1 className="text-lg sm:text-xl md:text-3xl font-light italic text-gray-800 mb-3 sm:mb-4 leading-tight">
               {data.intro.headline}
             </h1>
-            <p className="text-xl md:text-2xl italic text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl italic text-gray-600 max-w-2xl mx-auto leading-relaxed">
               {data.intro.tagline}
             </p>
           </div>
           
-          <div className="mt-6 flex justify-center">
+          <div className="mt-4 sm:mt-6 flex justify-center">
             <Player
               autoplay
               loop
               animationData={scrollDownLottie}
-              style={{ height: 60, width: 60 }}
+              style={{ height: 40, width: 40 }}
+              className="sm:h-[60px] sm:w-[60px]"
               aria-label="Scroll down animation"
             />
           </div>
@@ -182,9 +183,9 @@ const Home: React.FC = () => {
       </section>
 
       {/* Navigation Cards Section */}
-      <section className="h-screen snap-start flex flex-col justify-center py-12 px-4 bg-white/30">
+      <section className="min-h-screen snap-start flex flex-col justify-center py-8 sm:py-12 px-4 bg-white/30">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1600px] mx-auto">
             {data.navigation.map((card, index) => {
               // Assign pastel backgrounds and tag colors by card type
               const cardBg = index === 0 ? 'bg-[#d6ece7]' : index === 1 ? 'bg-[#fbe6ea]' : 'bg-[#e6f2fb]';
@@ -193,7 +194,7 @@ const Home: React.FC = () => {
               return (
                 <Card
                   key={index}
-                  className={`relative flex flex-col justify-between w-full max-w-[500px] h-[520px] sm:h-[560px] md:h-[580px] p-8 rounded-3xl border border-[#e0e0e0] shadow-md ${cardBg} transition-all group focus:outline-none overflow-visible cursor-pointer mx-auto`}
+                  className={`relative flex flex-col justify-between w-full max-w-[500px] h-[350px] sm:h-[520px] md:h-[580px] p-4 sm:p-6 md:p-8 rounded-3xl border border-[#e0e0e0] shadow-md ${cardBg} transition-all group focus:outline-none overflow-visible cursor-pointer mx-auto`}
                   onClick={() => navigate(card.to)}
                   tabIndex={0}
                   role="button"
@@ -201,23 +202,23 @@ const Home: React.FC = () => {
                   style={{ minWidth: 0 }}
                 >
                   {/* Top right arrow icon */}
-                  <div className={`absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full ${arrowBg} group-hover:bg-opacity-80 transition z-10`}>
-                    <ArrowUpRight className="w-6 h-6 text-black" />
+                  <div className={`absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full ${arrowBg} group-hover:bg-opacity-80 transition z-10`}>
+                    <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                   </div>
                   {/* Title and desc */}
                   <div>
-                    <h2 className="text-2xl font-bold mb-2 text-black">{card.label}</h2>
-                    <p className="text-gray-700 text-base mb-4">{card.desc}</p>
-                    <div className="flex gap-2 mb-6 flex-row flex-nowrap w-full">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-black">{card.label}</h2>
+                    <p className="text-gray-700 text-sm sm:text-base mb-3 sm:mb-4">{card.desc}</p>
+                    <div className="flex gap-1 sm:gap-2 mb-4 sm:mb-6 flex-row flex-nowrap w-full">
                       {card.tags.map((tag, idx) => (
-                        <span key={idx} className={`px-3 py-1 rounded-full text-xs font-semibold ${tagColor} whitespace-nowrap`}>{tag.label}</span>
+                        <span key={idx} className={`px-2 py-1 sm:px-3 rounded-full text-xs font-semibold ${tagColor} whitespace-nowrap`}>{tag.label}</span>
                       ))}
                     </div>
                   </div>
                   {/* Phone mockup image - always below tags */}
                   <div className="flex-1 flex items-end justify-center relative mt-2">
-                    <div className="w-48 h-72 sm:w-56 sm:h-80 md:w-64 md:h-88 rounded-2xl flex items-center justify-center overflow-visible z-0">
-                      <img src={getImageUrl(card.phoneImg)} alt={card.label + ' preview'} className="object-contain w-full h-full drop-shadow-xl" style={{ marginBottom: '-40px' }} />
+                    <div className="w-28 h-40 sm:w-48 sm:h-72 md:w-64 md:h-88 rounded-2xl flex items-center justify-center overflow-visible z-0">
+                      <img src={getImageUrl(card.phoneImg)} alt={card.label + ' preview'} className="object-contain w-full h-full drop-shadow-xl" style={{ marginBottom: '-15px' }} />
                     </div>
                   </div>
                 </Card>
@@ -228,14 +229,14 @@ const Home: React.FC = () => {
       </section>
 
       {/* About Me Section */}
-      <section className="h-screen snap-start flex flex-col justify-center py-12 px-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <section className="h-screen snap-start flex flex-col justify-center py-8 sm:py-12 px-4 bg-gradient-to-br from-blue-50 to-indigo-100">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
               About Me
             </h2>
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-72 h-96 bg-white flex items-center justify-center text-lg rounded-xl mb-6 md:mb-0 shrink-0 overflow-hidden shadow-lg">
+            <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
+              <div className="w-48 h-64 sm:w-72 sm:h-96 bg-white flex items-center justify-center text-lg rounded-xl mb-6 md:mb-0 shrink-0 overflow-hidden shadow-lg">
                 {data.about.image ? (
                   <img src={getImageUrl(data.about.image)} alt="About Me" className="object-cover w-full h-full" />
                 ) : (
@@ -243,9 +244,9 @@ const Home: React.FC = () => {
                 )}
               </div>
               <div className="flex-1 text-left">
-                <h3 className="text-lg font-semibold mb-2">{data.about.subheadline}</h3>
+                <h3 className="text-base sm:text-lg font-semibold mb-2">{data.about.subheadline}</h3>
                 {data.about.bio.split('\n').map((line, idx) => (
-                  <p key={idx} className="text-zinc-700 dark:text-zinc-300 max-w-xl text-base">{line}</p>
+                  <p key={idx} className="text-zinc-700 dark:text-zinc-300 max-w-xl text-sm sm:text-base">{line}</p>
                 ))}
               </div>
             </div>
@@ -254,32 +255,32 @@ const Home: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="h-screen snap-start flex flex-col justify-center py-12 px-4 bg-gradient-to-br from-slate-100 to-gray-200">
+      <section className="h-screen snap-start flex flex-col justify-center py-8 sm:py-12 px-4 bg-gradient-to-br from-slate-100 to-gray-200">
         <div className="max-w-4xl mx-auto w-full">
-          <div className="mb-8">
-            <div className="tracking-[0.4em] text-center text-gray-400 text-lg mb-6 font-medium">CONTACT</div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+          <div className="mb-6 sm:mb-8">
+            <div className="tracking-[0.3em] sm:tracking-[0.4em] text-center text-gray-400 text-base sm:text-lg mb-4 sm:mb-6 font-medium">CONTACT</div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
               {data.contact.headline}
             </h2>
-            <div className="flex flex-col items-center gap-3 mb-10">
-              <div className="flex items-center gap-2 text-gray-600 text-lg">
+            <div className="flex flex-col items-center gap-2 sm:gap-3 mb-8 sm:mb-10">
+              <div className="flex items-center gap-2 text-gray-600 text-base sm:text-lg">
                 <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5.75C3 4.784 3.784 4 4.75 4h14.5c.966 0 1.75.784 1.75 1.75v12.5c0 .966-.784 1.75-1.75 1.75H4.75A1.75 1.75 0 013 18.25V5.75z" /><path strokeLinecap="round" strokeLinejoin="round" d="M3 6l9 6 9-6" /></svg>
                 <span>{data.contact.email}</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-600 text-lg">
-                <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657A8 8 0 013.343 2.343a8 8 0 0011.314 11.314z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <div className="flex items-center gap-2 text-gray-600 text-base sm:text-lg">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657A8 8 0 013.343 2.343a8 8 0 0011.314 11.314z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 <span>{data.contact.location}</span>
               </div>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
-            <div className="flex flex-col md:flex-row gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4 w-full">
+            <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
-                className="flex-1 px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg"
+                className="flex-1 px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-base sm:text-lg"
                 placeholder="Name"
                 value={form.name}
                 onChange={handleInputChange}
@@ -290,7 +291,7 @@ const Home: React.FC = () => {
                 id="email"
                 name="email"
                 required
-                className="flex-1 px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg"
+                className="flex-1 px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-base sm:text-lg"
                 placeholder="Email"
                 value={form.email}
                 onChange={handleInputChange}
@@ -301,7 +302,7 @@ const Home: React.FC = () => {
               type="text"
               id="subject"
               name="subject"
-              className="px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg"
+              className="px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-base sm:text-lg"
               placeholder="Subject"
               value={form.subject}
               onChange={handleInputChange}
@@ -311,8 +312,8 @@ const Home: React.FC = () => {
               id="message"
               name="message"
               required
-              rows={5}
-              className="px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-lg resize-none"
+              rows={4}
+              className="px-3 py-2 sm:px-4 sm:py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-base sm:text-lg resize-none"
               placeholder="Message"
               value={form.message}
               onChange={handleInputChange}
@@ -320,7 +321,7 @@ const Home: React.FC = () => {
             />
             <button
               type="submit"
-              className="w-full bg-teal-400 text-white py-4 px-8 rounded-lg font-semibold hover:bg-teal-500 transition-colors duration-200 text-lg mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-teal-400 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-teal-500 transition-colors duration-200 text-base sm:text-lg mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
               disabled={loading}
             >
               {loading ? 'Sending...' : 'Submit'}

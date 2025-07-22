@@ -34,9 +34,9 @@ const Articles: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#fafafa] py-8 px-2">
-      <h2 className="text-center text-gray-500 tracking-widest text-2xl sm:text-3xl font-extrabold mb-10 uppercase border-b-2 border-teal-300 w-fit mx-auto pb-2">ARTICLES</h2>
-      <div className="flex flex-col gap-6 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-[#fafafa] py-6 sm:py-8 px-2">
+      <h2 className="text-center text-gray-500 tracking-widest text-xl sm:text-2xl md:text-3xl font-extrabold mb-8 sm:mb-10 uppercase border-b-2 border-teal-300 w-fit mx-auto pb-2">ARTICLES</h2>
+      <div className="flex flex-col gap-4 sm:gap-6 max-w-3xl mx-auto">
         {articles.map((item, idx) => (
           <a
             key={idx}
@@ -46,8 +46,8 @@ const Articles: React.FC = () => {
             className="no-underline"
             style={{ display: 'block' }}
           >
-            <div className="relative flex flex-col md:flex-row items-center gap-6 rounded-2xl p-10 shadow-sm min-h-[220px] md:min-h-[220px] bg-gradient-to-br from-blue-100 via-white to-blue-50 dark:from-blue-900 dark:via-zinc-800 dark:to-blue-800 transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
-              <div className="flex-shrink-0 flex items-end justify-center rounded-xl overflow-hidden bg-transparent" style={{width: '170px', height: '180px'}}>
+            <div className="relative flex flex-col md:flex-row items-center gap-4 sm:gap-6 rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm min-h-[180px] sm:min-h-[200px] md:min-h-[220px] bg-gradient-to-br from-blue-100 via-white to-blue-50 dark:from-blue-900 dark:via-zinc-800 dark:to-blue-800 transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
+              <div className="flex-shrink-0 flex items-end justify-center rounded-xl overflow-hidden bg-transparent" style={{width: '100px', height: '110px'}}>
                 <div className="relative w-full h-full flex items-end justify-center">
                   {/* White background behind phone frame */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[95%] h-[95%] bg-white z-0 rounded-xl" />
@@ -83,14 +83,14 @@ const Articles: React.FC = () => {
               </div>
               <div className="flex-1 text-left flex flex-col justify-between h-full pr-2">
                 <div className="flex flex-col justify-start h-full">
-                  <div className="font-bold text-base md:text-lg mb-1">{item.title}</div>
+                  <div className="font-bold text-sm sm:text-base md:text-lg mb-1">{item.title}</div>
                   <div className="text-xs text-gray-600 mb-2">Published on: {item.date} by {item.publisher}</div>
-                  <div className="text-sm text-gray-700 leading-relaxed mb-3">{item.summary}</div>
+                  <div className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3">{item.summary}</div>
                 </div>
                 {item.tags && item.tags.length > 0 && (
-                  <div className="absolute bottom-6 right-8 flex gap-2 flex-wrap">
+                  <div className="absolute bottom-4 right-6 sm:bottom-6 sm:right-8 flex gap-1 sm:gap-2 flex-wrap">
                     {item.tags.map((tag, i) => (
-                      <span key={i} className="px-3 py-1 rounded-full bg-gray-400 text-white text-xs font-semibold shadow-sm">{tag}</span>
+                      <span key={i} className="px-2 py-1 sm:px-3 rounded-full bg-gray-400 text-white text-xs font-semibold shadow-sm">{tag}</span>
                     ))}
                   </div>
                 )}
@@ -100,13 +100,13 @@ const Articles: React.FC = () => {
         ))}
       </div>
       {/* Home button at the end of the page */}
-      <div className="flex justify-center mt-12 mb-4">
+      <div className="flex justify-center mt-8 sm:mt-12 mb-4">
         <button
           onClick={() => navigate('/')}
-          className="rounded-full bg-teal-400 hover:bg-teal-500 transition-colors w-14 h-14 flex items-center justify-center shadow-lg"
+          className="rounded-full bg-teal-400 hover:bg-teal-500 transition-colors w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shadow-lg"
           aria-label="Go to Home"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-7 h-7">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6 sm:w-7 sm:h-7">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6" />
           </svg>
         </button>
